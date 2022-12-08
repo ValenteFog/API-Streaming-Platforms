@@ -7,7 +7,7 @@ app = FastAPI()
 
 @app.get('/')
 async def home():
-    return {'''Juan Valentín Fogliatti <br>
+    mensaje = '''Juan Valentín Fogliatti <br>
 Soy Henry - Data Science 05 - Proyecto Individual 01 <br>
 
 Repositorio: https://github.com/ValenteFog/PI01_DATA05<br>
@@ -38,7 +38,8 @@ Ejemplo: /get_listedin/comedy ó get_listedin/action<br>
 * Para conocer el actor que más se repite según plataforma y año: <br>
 Utilice /get_actor/plataforma/año<br>
 Ejemplo: /get_actor/netflix/2018<br>
-'''}
+'''
+    return mensaje
 
 
 @app.get('/get_max_duration/{anio}/{plataforma}/{duracion}')
