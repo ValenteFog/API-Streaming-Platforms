@@ -53,7 +53,7 @@ async def get_max_duration(anio: int, plataforma: str, duracion: str):
         db['release_year'] == anio) & (db['duration_type'] == duracion)]
     out = query_1.sort_values(
         'duration_len', ascending=False, ignore_index=True)
-    return (f'La producción "{out.title[0]}", con {out.duration_len[0]} {duracion}, fue la de mayor duración en la plataforma {plataforma}')
+    return (f'La producción {out.title[0]}, con {out.duration_len[0]} {duracion}, fue la de mayor duración en la plataforma {plataforma}')
 
 
 @app.get('/get_count_plataform/{plataforma}')
@@ -76,7 +76,7 @@ async def get_listedin(genero: str):
         'plataforma'].count().sort_values(ascending=False)
     query_3 = query_3.to_dict()
 
-    return (f'El genero "{genero}" se repite {list(query_3.values())[0]} veces para la plataforma {list(query_3)[0]}')
+    return (f'El genero {genero} se repite {list(query_3.values())[0]} veces para la plataforma {list(query_3)[0]}')
 
 
 @app.get('/get_actor/{plataforma}/{anio}')
@@ -90,4 +90,4 @@ async def get_actor(plataforma: str, anio: int):
     cant = query_4['cast'].str.get_dummies(sep=', ').sum()
     cant = cant.sort_values(ascending=False).to_dict()
 
-    return (f'El actor "{list(cant)[0]}" se repite {list(cant.values())[0]} veces para la plataforma {plataforma} en el año {anio}')
+    return (f'El actor {list(cant)[0]} se repite {list(cant.values())[0]} veces para la plataforma {plataforma} en el año {anio}')
