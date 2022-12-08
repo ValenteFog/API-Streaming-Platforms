@@ -14,7 +14,8 @@ async def home():
 async def get_max_duration(anio: int, plataforma: str, duracion: str):
     plataforma = plataforma.lower().strip()
     duracion = duracion.lower().strip()
-    db = pd.read_csv(r'./Datasets/plataforma_db.csv')
+    db = pd.read_csv(
+        r'https://raw.githubusercontent.com/ValenteFog/PI01_DATA05/master/Datasets/plataforma_db.csv')
     query_1 = db[(db['plataforma'] == plataforma) & (
         db['release_year'] == anio) & (db['duration_type'] == duracion)]
     out = query_1.sort_values(
