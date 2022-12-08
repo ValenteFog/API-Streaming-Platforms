@@ -4,31 +4,35 @@
 
 # <h1 align=center>**`Data Engineering`**</h1>
 
-<p align="center">
-<img src="https://files.realpython.com/media/What-is-Data-Engineering_Watermarked.607e761a3c0e.jpg"  height=300>
-</p>
 
-¡Bienvenidos al primer proyecto individual de la etapa de labs! En esta ocasión, deberán hacer un trabajo situándose en el rol de un ***Data Engineer***.  
+## ¡Bienvenidos! 
+Mi nombre es Juan Valentín Fogliatti. Soy estudiante de Soy Henry, de la cohorte Nº5 de la carrera de Data Science, y actualmente estoy transitando la etapa de Labs. Como el título lo indica, este es el Proyecto Individual Nº1, en el cual desempeñamos el rol de un **Data Engineer**.  
 
 <hr>  
 
-## **Introducción**
+## **Descripción del Proyecto**
+Se nos ha facilitado un repositorio que incluse 4 datasets de conocidas plataformas de streaming: Amazon Prime, Disney+, Hulu y Netflix. Dichos datasets se encuentran en archivos de diferentes extensiones, y nuestra labor consiste en ingestarlos, aplicar las transformaciones que consideremos pertinentes, y luego disponibilizar los datos limpios para su consulta a través de una API. Esta API deberá ser construida en un entorno virtual dockerizado. Un plus será levantar esta API en Mogenius.
 
-La idea de este proyecto es que el alumno logre internalizar los conocimientos requeridos para la elaboración y ejecución de una API.
+<br>
 
-`Application Programming Interface` es una interfaz que permite que dos aplicaciones se comuniquen entre sí, independientemente de la infraestructura subyacente. Son herramientas muy versátiles y fundamentales para la creación de, por ejemplo, pipelines, ya que permiten mover y brindar acceso simple a los datos que se quieran disponibilizar a través de los diferentes endpoints, o puntos de salida de la API.
+## **Objetivos a alcanzar**
+Para este proyecto debemos ser capaces de:
 
-Hoy en día contamos con **FastAPI**, un web framework moderno y de alto rendimiento para construir APIs con Python.
-<p align=center>
-<img src = 'https://i.ibb.co/9t3dD7D/blog-zenvia-imagens-3.png' height=250><p>
+1. Ingestar y normalizar los datos.
 
-## **Propuesta de trabajo**
+2. Relacionar el conjunto de datos y transformarlos de forma necesaria para poder realizar consultas. 
 
-El proyecto consiste en realizar una ingesta de datos desde diversas fuentes, posteriormente aplicar las transformaciones que consideren pertinentes, y luego disponibilizar los datos limpios para su consulta a través de una API. Esta API deberán construirla en un entorno virtual dockerizado.
+3. Crear una API en un entorno Docker.
 
-Los datos serán provistos en archivos de diferentes extensiones, como *csv* o *json*. Se espera que realicen un EDA para cada dataset y corrijan los tipos de datos, valores nulos y duplicados, entre otras tareas. Posteriormente, tendrán que relacionar los datasets así pueden acceder a su información por medio de consultas a la API.
+5. Realizar las consultas solicitadas, expuestas en el siguiente apartado.
 
-Las consultas a realizar son:
+6. Realizar un video demostrativo.
+
+7. Realizar un deployment de la API en Mogenius.
+
+<br>
+
+### Las consultas a realizar son:
 
 + Máxima duración según tipo de film (película/serie), por plataforma y por año:
     El request debe ser: get_max_duration(año, plataforma, [min o season])
@@ -43,110 +47,25 @@ Las consultas a realizar son:
 + Actor que más se repite según plataforma y año.
   El request debe ser: get_actor(plataforma, año)
 
-## **Pasos del proyecto**
+<br>
 
-1. Ingesta y normalización de datos
+## **Archivos dentro del Repositorio**
+Dentro de este repositorio tenemos una serie de archivos y carpetas que brevemente expondremos.
 
-2. Relacionar el conjunto de datos y crear la tabla necesaria para realizar consultas. Aquí se recomienda corroborar qué datos necesitarán en base a las consultas a realizar y concatenar las 4 tablas
+* El archivo 'PI01_procesos.ipynb' es un notebook de jupyter donde básicamente se despliega todo el proyecto. Consta de una primera parte en donde se hace la ingesta de datos, se exploran esos datos y luego se transforman en función de las necesidades. El output final es un archivo '.csv' que contiene la información procesada y lista para luego ser utilizada por la API. Una segunda parte expone las funciones que se utilizarán para realizar las consultas a la API que creemos.
 
-3. Leer documentación en links provistos e indagar sobre Uvicorn, FastAPI y Docker
+* El archivo 'Dockerfile' que contiene las instrucciones necesarias para crear una imagen del contenedor desde cero e indica la imágen base que va a utilizar, en nuestro caso FastAPI.
 
-4. Crear la API en un entorno Docker → leer documentación en links provistos
+* La carpeta 'Datasets' incluye 5 archivos. Cuatro de ellos son los fuentes de nuestros datos, que nos fueron facilitados para este trabajo. El quinto archivo es el '.csv' resultante del proceso de ETL que realizamos en el notebook, y que será tomado por la API para realizar las consultas.
 
-5. Realizar consultas solicitadas
+* La carpeta 'app' contiene el archivo 'main.py', un archivo de Python que contiene todo lo necesario para levantar la API. Allí se instancia FastAPI, se define la homepage para nuestra API, y el código para realizar las consultas (que traemos también del notebook).
 
-6. Realizar un video demostrativo
+<br>
 
-7. **PLUS**: realizar un deployment en Mogenius 
-
-<p align=center>
-<img src = 'https://i.postimg.cc/2SwvnTcw/Sin-t-tulo.png' height = 400></p>
-
-## **Criterios de evaluación**
-
-**`Código`**:
-
-+ Prolijidad de código 
-
-+ Uso de clases y/o funciones, en caso de ser necesario
-
-+ Código comentado
-
-**`Repositorio`**:
-
-+ Nombres de archivo adecuados
-
-+ Uso de carpetas para ordenar los archivos
-
-+ README.md presentando el proyecto y el trabajo realizado
-
-**`Cumplimiento de consigna`**:
-
-+ Ejecución de consultas a la API
-+ Opcional: cumplimiento de plus
-
-## **Video demostrativo**
-
-Tendrán que realizar un video presentando su trabajo y ejecutando las tareas solicitadas. **No deberá superar los 5 minutos**. Debe incluir una breve presentación personal, del proyecto, ejecución de código y tareas solicitadas.
-
-Para presentarlo, deben entregar el link de acceso al video. Pueden alojarlo en YouTube, Drive o cualquier plataforma de almacenamiento. **Verificar que sea de acceso público**.
-
-## **Checklist**
-
-A modo de ayuda, dejamos algunos ítems para que puedan corroborar que su trabajo cumple con los requerimientos solicitados:
-
-+ ¿Creaste funciones para tareas que puedan ser necesarias repetir en tu código?
-
-+ ¿Comentaste tu código para que alguien más entienda qué hiciste o por qué, en cada bloque?
-
-+ ¿Realizaste una limpieza adecuada de los datos?
-
-+ ¿Levantaste un entorno containerized Docker con FastAPI?
-
-+ ¿Se pueden realizar consultas a tu API?
-
-+ ¿Tu repositorio tiene un README presentando el proyecto y el trabajo que hiciste para desarrollarlo?
-
-+ ¿Los archivos, dentro de tu repositorio, están nombrados acorde a su contenido y organizados en carpetas?
-
-+ ¿Hiciste un video demostrativo? ¿Incluye una presentación personal y del proyecto? ¿Hay una explicación del paso a paso?
-
-
-## **Conceptos de interés**
-
-- **`Docker`** es una solución completa para la producción, distribución y uso de containers.  
-&nbsp;- **`Container`** es una abstracción de la capa de software que permite *empaquetar* código, con librerías y dependencias en un entorno parcialmente aislado.  
-&nbsp;- **`Image`** es un ejecutable Docker que tiene todo lo necesario para correr aplicaciones, lo que incluye un archivo de configuración, variables -de entorno y runtime- y librerías.  
-&nbsp;- **`Dockerfile`** archivo de texto con instrucciones para construir una imagen. Puede considerarse la automatización de creación de imágenes.  
-- **`Deployment`** es el conjunto de actividades, infraestructura y recursos que posibilitan el uso de software. En este caso, la plataforma Mogenius les permitirá *montar* su imagen de Docker con la API en sus servidores para acceder a ella a través de internet.
-
-## **Recursos y links provistos**
-
-Imagen Docker con Uvicorn/Guinicorn para aplicaciones web de alta performance:
-
-+ https://hub.docker.com/r/tiangolo/uvicorn-gunicorn-fastapi/ 
-
-+ https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker
-
-Mogenius Deployment
-
-+ https://mogenius.com/home  
-
-FAST API Documentation:
-
-+ https://fastapi.tiangolo.com/tutorial/
-
-
-## **Fuente de datos**
-
-+ Podrán encontrar los archivos con datos en la carpeta Datasets, en este mismo repositorio.<sup>*</sup>
-
-> <sub> <sup>*</sup>`Si quieren practicar un poco más, pueden investigar sobre la librería REQUESTS para descargar archivos desde links. Otra alternativa es usar el manejo nativo de Pandas para leer archivos directamente desde links`
-
-## **Deadline**
-
-Se les disponibilizará, a su debido tiempo, un form por el canal de Slack para que carguen sus links del repositorio de GitHub.  
-La fecha límite para la entrega es el día **viernes 9 de diciembre a las 12:00 GMT-3**.   
-  
-<p align=center>
-<img src = 'https://cdn.memegenerator.es/imagenes/memes/full/0/90/902781.jpg' height = 300></p>
+## **Tecnologías utilizadas**
+Para realizar todo este proyecto se utilizó:
+* Python
+* Docker
+* Librerías de Python: pandas, FastAPI
+* Mogenius
+* Github
