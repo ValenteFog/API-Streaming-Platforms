@@ -13,7 +13,7 @@ Juan Valentín Fogliatti
 Soy Henry - Data Science 05 - Proyecto Individual 01
 
 Repositorio: https://github.com/ValenteFog/PI01_DATA05
-Video Explicativo:
+Video Explicativo: https://youtu.be/j5qsUhYff_0
 
 Haga consultas sobre películas y series de las plataformas de streaming
 AMAZON PRIME - DISNEY+ - HULU - NETFLIX

@@ -10,6 +10,13 @@ Mi nombre es Juan Valentín Fogliatti. Soy estudiante de Soy Henry, de la cohort
 
 <hr>  
 
+## Links de interés 
+API en Mogenius: https://pi01-data05-prod-pi01-data05-z6994f.mo6.mogenius.io/
+Video de presentación: https://www.youtube.com/watch?v=j5qsUhYff_0
+Repositorio: https://github.com/ValenteFog/PI01_DATA05
+
+<hr>
+
 ## **Descripción del Proyecto**
 Se nos ha facilitado un repositorio que incluse 4 datasets de conocidas plataformas de streaming: Amazon Prime, Disney+, Hulu y Netflix. Dichos datasets se encuentran en archivos de diferentes extensiones, y nuestra labor consiste en ingestarlos, aplicar las transformaciones que consideremos pertinentes, y luego disponibilizar los datos limpios para su consulta a través de una API. Esta API deberá ser construida en un entorno virtual dockerizado. Un plus será levantar esta API en Mogenius.
 
