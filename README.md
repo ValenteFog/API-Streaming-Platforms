@@ -12,7 +12,9 @@ Mi nombre es Juan Valentín Fogliatti. Soy estudiante de Soy Henry, de la cohort
 
 ## Links de interés 
 API en Mogenius: https://pi01-data05-prod-pi01-data05-z6994f.mo6.mogenius.io/
+
 Video de presentación: https://www.youtube.com/watch?v=j5qsUhYff_0
+
 Repositorio: https://github.com/ValenteFog/PI01_DATA05
 
 <hr>
