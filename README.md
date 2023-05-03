@@ -1,80 +1,71 @@
-<p align=center><img src=https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png><p>
+<p align="center" width="100%">
+    <img width="10%" src="https://es.logodownload.org/wp-content/uploads/2018/11/netflix-logo-51.png">
+    <img width="10%" src="https://logodownload.org/wp-content/uploads/2019/09/hulu-logo.png">
+    <img width="10%" src="https://logodownload.org/wp-content/uploads/2020/11/disney-plus-logo-1.png">
+    <img width="10%" src="https://logodownload.org/wp-content/uploads/2018/07/prime-video.png">
+</p>
 
-# <h1 align=center> **PROYECTO INDIVIDUAL Nº1** </h1>
+# <h1 align=center> **API for streaming platforms** </h1>
 
 # <h1 align=center>**`Data Engineering`**</h1>
 
 
-## ¡Bienvenidos! 
-Mi nombre es Juan Valentín Fogliatti. Soy estudiante de Soy Henry, de la cohorte Nº5 de la carrera de Data Science, y actualmente estoy transitando la etapa de Labs. Como el título lo indica, este es el Proyecto Individual Nº1, en el cual desempeñamos el rol de un **Data Engineer**.  
+## ¡Welcome! 
+We have 4 datasets from well-known streaming platforms: Amazon Prime, Disney+, Hulu, and Netflix. These datasets are contained in files with different extensions (csv and json), and our task is to ingest them, apply relevant transformations, and then make the clean data available for querying through an API. This API should be built in a Dockerized virtual environment and will be deployed on Mogenius.com. 
 
 <hr>  
 
-## Links de interés 
-API en Mogenius: https://pi01-data05-prod-pi01-data05-z6994f.mo6.mogenius.io/
+## Links:
+API on Mogenius: https://pi01-data05-prod-pi01-data05-z6994f.mo6.mogenius.io/ *(Update: no longer available due to service changes)*
 
-Video de presentación: https://www.youtube.com/watch?v=j5qsUhYff_0
-
-Repositorio: https://github.com/ValenteFog/PI01_DATA05
+Video presentation: https://www.youtube.com/watch?v=j5qsUhYff_0 *(In Spanish)*
 
 <hr>
 
-## **Descripción del Proyecto**
-Se nos ha facilitado un repositorio que incluse 4 datasets de conocidas plataformas de streaming: Amazon Prime, Disney+, Hulu y Netflix. Dichos datasets se encuentran en archivos de diferentes extensiones, y nuestra labor consiste en ingestarlos, aplicar las transformaciones que consideremos pertinentes, y luego disponibilizar los datos limpios para su consulta a través de una API. Esta API deberá ser construida en un entorno virtual dockerizado. Un plus será levantar esta API en Mogenius.
+## **Project Scope**
+For this project, we should be able to:
+
+* Ingest and normalize the data.
+* Relate and transform the dataset as necessary to perform queries.
+* Create an API in a Docker environment.
+* Perform the requested queries, as outlined in the following section.
+* Create a demonstration video.
+* Deploy the API on Mogenius.
 
 <br>
 
-## **Objetivos a alcanzar**
-Para este proyecto debemos ser capaces de:
+### The queries to be performed are:
 
-1. Ingestar y normalizar los datos.
++ Maximum duration by type of film (movie/series), by platform, and by year:
+    The request should be: get_max_duration(year, platform, [min or season])
 
-2. Relacionar el conjunto de datos y transformarlos de forma necesaria para poder realizar consultas. 
++ Number of movies and series (separate) by platform:
+    The request should be: get_count_platform(platform)
 
-3. Crear una API en un entorno Docker.
++ Number of times a genre and platform occur together most frequently.
+    The request should be: get_listed_in('genre')
+    As an example of genre, you can use 'comedy', which should return a count of 2099 for the Amazon platform.
 
-5. Realizar las consultas solicitadas, expuestas en el siguiente apartado.
-
-6. Realizar un video demostrativo.
-
-7. Realizar un deployment de la API en Mogenius.
-
-<br>
-
-### Las consultas a realizar son:
-
-+ Máxima duración según tipo de film (película/serie), por plataforma y por año:
-    El request debe ser: get_max_duration(año, plataforma, [min o season])
-
-+ Cantidad de películas y series (separado) por plataforma
-    El request debe ser: get_count_plataform(plataforma)  
-  
-+ Cantidad de veces que se repite un género y plataforma con mayor frecuencia del mismo.
-    El request debe ser: get_listedin('genero')  
-    Como ejemplo de género pueden usar 'comedy', el cuál deberia devolverles un cunt de 2099 para la plataforma de amazon.
-
-+ Actor que más se repite según plataforma y año.
-  El request debe ser: get_actor(plataforma, año)
++ Actor who appears most frequently by platform and year.
+    The request should be: get_actor(platform, year)
 
 <br>
 
-## **Archivos dentro del Repositorio**
-Dentro de este repositorio tenemos una serie de archivos y carpetas que brevemente expondremos.
+## **Files within the Repository**
+Within this repository, we have a series of files and folders that we will briefly outline.
 
-* El archivo 'PI01_procesos.ipynb' es un notebook de jupyter donde básicamente se despliega todo el proyecto. Consta de una primera parte en donde se hace la ingesta de datos, se exploran esos datos y luego se transforman en función de las necesidades. El output final es un archivo '.csv' que contiene la información procesada y lista para luego ser utilizada por la API. Una segunda parte expone las funciones que se utilizarán para realizar las consultas a la API que creemos.
+* **'Processes.ipynb'** is a Jupyter notebook where the project is essentially deployed. It consists of a first part where the data is ingested, explored, and then transformed based on our needs (ETL). The final output is a '.csv' file containing the processed information that will be used by the API. A second part exposes the functions that will be used to perform queries on the API we create.
 
-* El archivo 'Dockerfile' que contiene las instrucciones necesarias para crear una imagen del contenedor desde cero e indica la imágen base que va a utilizar, en nuestro caso FastAPI.
+* **'Dockerfile'** contains the necessary instructions to create a container image from scratch and indicates the base image that will be used, in our case FastAPI.
 
-* La carpeta 'Datasets' incluye 5 archivos. Cuatro de ellos son los fuentes de nuestros datos, que nos fueron facilitados para este trabajo. El quinto archivo es el '.csv' resultante del proceso de ETL que realizamos en el notebook, y que será tomado por la API para realizar las consultas.
+* **'Datasets'** folder includes 5 files. Four of them are the sources of our data that were provided to us for this project. The fifth file is the '.csv' resulting from the *ETL* process we performed in the notebook, which will be taken by the API to perform the queries.
 
-* La carpeta 'app' contiene el archivo 'main.py', un archivo de Python que contiene todo lo necesario para levantar la API. Allí se instancia FastAPI, se define la homepage para nuestra API, y el código para realizar las consultas (que traemos también del notebook).
+* **'app'** folder contains the 'main.py' file, a Python file that contains everything needed to set up the API. Here, FastAPI is instantiated, the homepage for our API is defined, and the code for performing queries (which is also brought from the notebook) is written.
 
-<br>
+## **Technologies Used**
 
-## **Tecnologías utilizadas**
-Para realizar todo este proyecto se utilizó:
-* Python
-* Docker
-* Librerías de Python: pandas, FastAPI
-* Mogenius
-* Github
++ Python
++ Docker
++ Python libraries: pandas, FastAPI
++ Mogenius.com
++ Github
