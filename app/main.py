@@ -9,37 +9,34 @@ app = FastAPI()
 @app.get("/", response_class=PlainTextResponse)
 async def main():
     return '''
-Juan Valentín Fogliatti
-Soy Henry - Data Science 05 - Proyecto Individual 01
+Repository: https://github.com/ValenteFog/PI01_DATA05
+Video Presentation: https://youtu.be/j5qsUhYff_0
 
-Repositorio: https://github.com/ValenteFog/PI01_DATA05
-Video Explicativo: https://youtu.be/j5qsUhYff_0
-
-Haga consultas sobre películas y series de las plataformas de streaming
+Make queries about movies and series from the streaming platforms
 AMAZON PRIME - DISNEY+ - HULU - NETFLIX
 
-MODO DE USO:
+USAGE:
 
-Para consultar una plataforma utilice esta denominación: amazon, disney, hulu ó netflix.
-Para consultar la duración de una película o serie utilice: min ó season, respectivamente.
-Para consultar un año utilice valores numéricos enteros.
-Para consultar por género utilice su denominación en inglés. Hay +100 disponibles.
+To query a platform, use the following names: amazon, disney, hulu or netflix.
+To query the duration of a movie or series, use: min or season, respectively.
+To query a year, use integer values.
+To query by genre, use its English name. There are +100 available.
 
-* Para conocer la máxima duración según tipo de film (película/serie), por plataforma y por año: 
-Utilice /get_max_duration/año/plataforma/(min o season)
-Ejemplo: /get_max_duration/2018/hulu/min ó /get_max_duration/2015/netflix/season
+* To know the maximum duration according to the type of film (movie/series), by platform and by year:
+Use /get_max_duration/year/platform/(min or season)
+Example: /get_max_duration/2018/hulu/min or /get_max_duration/2015/netflix/season
 
-* Para conocer la cantidad de películas y series (por separado) por plataforma:
-Utilice /get_count_plataform/plataforma
-Ejemplo: /get_count_plataform/disney ó get_count_plataform/amazon
+* To know the number of movies and series (separately) per platform:
+Use /get_count_plataform/platform
+Example: /get_count_plataform/disney or get_count_plataform/amazon
 
-* Para conocer la cantidad de veces que se repite un género y plataforma con mayor frecuencia del mismo: 
-Utilice /get_listedin/genero
-Ejemplo: /get_listedin/comedy ó get_listedin/action
+* To know the number of times a genre and platform repeat with the highest frequency:
+Use /get_listedin/genre
+Example: /get_listedin/comedy or /get_listedin/action
 
-* Para conocer el actor que más se repite según plataforma y año:
-Utilice /get_actor/plataforma/año
-Ejemplo: /get_actor/netflix/2018
+* To know the actor who appears most frequently according to platform and year:
+Use /get_actor/platform/year
+Example: /get_actor/netflix/2018
 '''
 
 
